@@ -83,6 +83,10 @@ jobs:
           key:      ${{ secrets.EC2_SSH_KEY }}
           script: |
             set -e   # Exit immediately if any command fails
+            
+            export NVM_DIR="$HOME/.nvm"
+            source "$NVM_DIR/nvm.sh"
+            nvm use --lts
  
             # Clone repo if first time, otherwise pull latest changes
             if [ ! -d ~/app ]; then

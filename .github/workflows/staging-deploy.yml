@@ -63,6 +63,10 @@ jobs:
           key:      ${{ secrets.EC2_SSH_KEY }}
           script: |
             set -e
+            export NVM_DIR="$HOME/.nvm"
+            source "$NVM_DIR/nvm.sh"
+            nvm use --lts
+            
             if [ ! -d ~/app ]; then
               git clone https://github.com/${{ github.repository }}.git ~/app
             fi
