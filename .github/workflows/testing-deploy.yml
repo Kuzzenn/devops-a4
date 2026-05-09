@@ -40,7 +40,7 @@ jobs:
       
       - name: ' Build — Verify Code Loads Without Errors'
         working-directory: ./backend
-        run: |
+        run: node -e "require('./server'); process.exit(0);"
           
         env:
           NODE_ENV: test   # Prevents MongoDB connection attempt
